@@ -10,8 +10,8 @@ import com.usecase.service.TransactionService;
 @RestController
 public class TransactionController{
 
-	@Autowired
-	TransactionService transactionService;
+//	@Autowired
+//	TransactionService transactionService;
 
 	
 }
