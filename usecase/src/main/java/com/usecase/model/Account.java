@@ -1,5 +1,6 @@
 package com.usecase.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +23,12 @@ import org.springframework.lang.NonNullFields;
 
 @Entity
 @Table(name = "accounts")
-public class Account {
+public class Account implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@TableGenerator(name = "mysecquence", allocationSize = 1, initialValue = 1000000000)
 	@GeneratedValue(strategy = GenerationType.TABLE, generator = "mysecquence")
