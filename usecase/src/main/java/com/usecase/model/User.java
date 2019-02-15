@@ -46,6 +46,7 @@ public class User implements Serializable {
 
 	@NotEmpty
 	private String password;
+	private String token;
 
 	@Column(nullable = true, columnDefinition = "tinyint(1) default 1")
 	private boolean admin;
@@ -117,6 +118,14 @@ public class User implements Serializable {
 
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
 	}
 
 }
