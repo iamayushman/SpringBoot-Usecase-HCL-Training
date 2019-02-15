@@ -16,6 +16,24 @@ public class Room {
 	private int nonAc;
 	private int availableAcRoom;
 	private int availableNonAcRoom;
+	private int totalRooms;
+	private int totalAvailableRooms;
+
+	public int getTotalRooms() {
+		return totalRooms;
+	}
+
+	public void setTotalRooms(int totalRooms) {
+		this.totalRooms = totalRooms;
+	}
+
+	public int getTotalAvailableRooms() {
+		return totalAvailableRooms;
+	}
+
+	public void setTotalAvailableRooms(int totalAvailableRooms) {
+		this.totalAvailableRooms = totalAvailableRooms;
+	}
 
 	public int getId() {
 		return id;
