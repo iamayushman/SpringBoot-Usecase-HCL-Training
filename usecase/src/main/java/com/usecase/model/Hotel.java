@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,9 +21,9 @@ public class Hotel {
 	private int id;
 	private String name;
 	private String address;
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "roomId")
-	private Set<Room> room;
+	private Room room;
 
 	private int availableRooms;
 
@@ -58,13 +59,15 @@ public class Hotel {
 		this.address = address;
 	}
 
-	public Set<Room> getRoom() {
+	public Room getRoom() {
 		return room;
 	}
 
-	public void setRoom(Set<Room> room) {
+	public void setRoom(Room room) {
 		this.room = room;
 	}
+
+	 
 
 	 
 }
