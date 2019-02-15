@@ -12,28 +12,11 @@ public class Room {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private int ac;
-	private int nonAc;
-	private int availableAcRoom;
-	private int availableNonAcRoom;
-	private int totalRooms;
+	private int acRooms;
+	private int nonAcRooms;
+	private int availableAcRooms;
+	private int availableNonAcRooms;
 	private int totalAvailableRooms;
-
-	public int getTotalRooms() {
-		return totalRooms;
-	}
-
-	public void setTotalRooms(int totalRooms) {
-		this.totalRooms = totalRooms;
-	}
-
-	public int getTotalAvailableRooms() {
-		return totalAvailableRooms;
-	}
-
-	public void setTotalAvailableRooms(int totalAvailableRooms) {
-		this.totalAvailableRooms = totalAvailableRooms;
-	}
 
 	public int getId() {
 		return id;
@@ -43,36 +26,44 @@ public class Room {
 		this.id = id;
 	}
 
-	public int getAc() {
-		return ac;
+	public int getAcRooms() {
+		return acRooms;
 	}
 
-	public void setAc(int ac) {
-		this.ac = ac;
+	public void setAcRooms(int acRooms) {
+		this.acRooms = acRooms;
 	}
 
-	public int getNonAc() {
-		return nonAc;
+	public int getNonAcRooms() {
+		return nonAcRooms;
 	}
 
-	public void setNonAc(int nonAc) {
-		this.nonAc = nonAc;
+	public void setNonAcRooms(int nonAcRooms) {
+		this.nonAcRooms = nonAcRooms;
 	}
 
-	public int getAvailableAcRoom() {
-		return availableAcRoom;
+	public int getAvailableAcRooms() {
+		return availableAcRooms;
 	}
 
-	public void setAvailableAcRoom(int availableAcRoom) {
-		this.availableAcRoom = availableAcRoom;
+	public void setAvailableAcRooms(int availableAcRooms) {
+		this.availableAcRooms = availableAcRooms;
 	}
 
-	public int getAvailableNonAcRoom() {
-		return availableNonAcRoom;
+	public int getAvailableNonAcRooms() {
+		return availableNonAcRooms;
 	}
 
-	public void setAvailableNonAcRoom(int availableNonAcRoom) {
-		this.availableNonAcRoom = availableNonAcRoom;
+	public void setAvailableNonAcRooms(int availableNonAcRooms) {
+		this.availableNonAcRooms = availableNonAcRooms;
+	}
+
+	public int getTotalAvailableRooms() {
+		return totalAvailableRooms;
+	}
+
+	public void setTotalAvailableRooms(int totalAvailableRooms) {
+		this.totalAvailableRooms = totalAvailableRooms;
 	}
 
 }
