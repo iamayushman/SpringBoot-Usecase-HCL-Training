@@ -12,7 +12,7 @@ public interface HotelDao extends CrudRepository<Hotel, Integer> {
 
 	Hotel delete(int id);
 
-	Hotel update(int id);
+	 
 
 	
 	}

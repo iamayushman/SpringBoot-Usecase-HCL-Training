@@ -41,8 +41,12 @@ public class HotelController {
 		return hotelService.delete(id);
 	}
 
-	@PutMapping("hotel/{id}")
-	public Hotel updateHotel(@PathVariable int id) {
-		return hotelService.update(id);
+	@PutMapping("hotel")
+	public Hotel updateHotel(@RequestBody Hotel hotel) {
+		Hotel hotel2 = hotelService.findOneById(hotel.getId());
+		if (hotel2 != null) {
+			return hotelService.create(hotel);
+		}
+		return null;
 	}
 }
