@@ -26,7 +26,6 @@ public class RegistrationController {
 				|| user.getPassword().length() <= 0) {
 
 			throw new RegistrationException("Username and password is required");
-
 		} else {
 			try {
 
