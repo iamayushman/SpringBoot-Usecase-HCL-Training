@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.usecase.exception.LoginException;
 import com.usecase.exception.UserDoesNotExists;
-import com.usecase.model.Account;
 import com.usecase.model.User;
 import com.usecase.service.LoginService;
 

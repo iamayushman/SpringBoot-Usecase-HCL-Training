@@ -1,6 +1,5 @@
 package com.usecase.service;
 
-import com.usecase.model.Account;
 import com.usecase.model.User;
 
 public interface LoginService {

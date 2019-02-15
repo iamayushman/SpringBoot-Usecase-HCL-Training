@@ -18,8 +18,6 @@ import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.validation.constraints.NotEmpty;
 
-import org.springframework.lang.NonNullFields;
-
 @Entity
 @Table(name = "accounts")
 public class Account {

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.usecase.dao.LoginDao;
 import com.usecase.exception.UserDoesNotExists;
-import com.usecase.model.Account;
 import com.usecase.model.User;
 
 /**
