@@ -51,6 +51,8 @@ public class User implements Serializable {
 	@Column(nullable = true, columnDefinition = "tinyint(1) default 1")
 	private boolean admin;
 
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+
 	/*
 	 * 
 	 * @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
