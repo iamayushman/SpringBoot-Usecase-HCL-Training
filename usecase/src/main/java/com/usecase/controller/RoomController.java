@@ -23,7 +23,7 @@ public class RoomController {
 	@Autowired
 	HotelService hotelService;
 
-	@PostMapping("hotel/{id}/rooms")
+	@PostMapping("hotel/{id}/room")
 	public Room addHotel(@Valid @RequestBody Room room, @PathVariable int id) {
 		room.setHotel(hotelService.findOneById(id));
 		return roomService.save(room);
