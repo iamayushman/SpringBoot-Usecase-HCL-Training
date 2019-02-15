@@ -1,5 +1,7 @@
 package com.usecase.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,16 +20,9 @@ public class HotelController {
 	HotelService hotelService;
 
 	@PostMapping("addhotel")
-	public Hotel addhotel(@RequestBody Hotel hotel) throws RegistrationException {
+	public Hotel addhotel(@Valid @RequestBody Hotel hotel) throws RegistrationException {
 
-		if (hotel.getName() == null || hotel.getAddress().length() <= 0 || hotel.getRooms()<=0) {
+		return hotelService.create(hotel);
 
-			throw new RegistrationException("name, address and number of rooms is required");
-
-		} else {
-
-			return hotelService.create(hotel);
-
-		}
 	}
 }
