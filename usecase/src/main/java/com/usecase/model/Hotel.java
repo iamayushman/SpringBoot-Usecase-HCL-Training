@@ -30,7 +30,7 @@ public class Hotel {
 	@NotEmpty
 	private String phone;
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JsonManagedReference
 	private List<Room> rooms;
 
