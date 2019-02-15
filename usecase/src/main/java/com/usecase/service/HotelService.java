@@ -12,4 +12,8 @@ public interface HotelService {
 
 	public List<Hotel> findAll();
 
+	public Hotel delete(int id);
+
+	public Hotel update(int id);
+
 }

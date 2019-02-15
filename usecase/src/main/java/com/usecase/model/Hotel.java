@@ -1,15 +1,18 @@
 package com.usecase.model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.Id; 
+import javax.persistence.OneToMany; 
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "hotels")
@@ -25,9 +28,9 @@ public class Hotel {
 	@NotEmpty
 	private String phone;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "roomId")
-	private Room room;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonManagedReference
+	private List<Room> rooms;
 
 	public int getId() {
 		return id;
@@ -53,14 +56,6 @@ public class Hotel {
 		this.address = address;
 	}
 
-	public Room getRoom() {
-		return room;
-	}
-
-	public void setRoom(Room room) {
-		this.room = room;
-	}
-
 	public int getRating() {
 		return rating;
 	}
@@ -75,6 +70,14 @@ public class Hotel {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public List<Room> getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(List<Room> rooms) {
+		this.rooms = rooms;
 	}
 
 }
