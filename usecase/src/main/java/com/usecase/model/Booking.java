@@ -8,20 +8,24 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table
+@Table(name = "bookings")
 public class Booking {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private int hotelId;
+	private Hotel hotel;
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Room room;
 
 	@NotEmpty
 	private Date checkInDate;
@@ -44,14 +48,6 @@ public class Booking {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getHotelId() {
-		return hotelId;
-	}
-
-	public void setHotelId(int hotelId) {
-		this.hotelId = hotelId;
 	}
 
 	public Date getCheckInDate() {
@@ -92,5 +88,21 @@ public class Booking {
 
 	public void setGuests(int guests) {
 		this.guests = guests;
+	}
+
+	public Hotel getHotel() {
+		return hotel;
+	}
+
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
+	}
+
+	public Room getRoom() {
+		return room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
 	}
 }
