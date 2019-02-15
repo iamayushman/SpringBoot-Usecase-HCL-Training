@@ -1,5 +1,6 @@
 package com.usecase.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -20,52 +21,47 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+
 	@NotEmpty
 	@Column(unique = true)
 	private String username;
+
 	@NotEmpty
 	private String name;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-	private Date dob;
-	@Min(6)
-	private String pan;
+	@NotEmpty
+	private String mobile;
 
-	@Min(16)
-	private String aadhar;
+	@NotEmpty
+	private String address;
+
 	@NotEmpty
 	private String password;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "userId")
-	private Set<Role> Role;
+	@Column(nullable = true, columnDefinition = "tinyint(1) default 1")
+	private boolean admin;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "userId")
-	private List<Account> accounts;
-
-	private String token;
-
-	public List<Account> getAccounts() {
-		return accounts;
-	}
-
-	public void setAccounts(List<Account> accounts) {
-		this.accounts = accounts;
-	}
-
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
+	/*
+	 * 
+	 * @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	 * 
+	 * @JoinColumn(name = "userId") private List<Account> accounts;
+	 * 
+	 * private String token;
+	 * 
+	 * public List<Account> getAccounts() { return accounts; }
+	 * 
+	 * public void setAccounts(List<Account> accounts) { this.accounts = accounts; }
+	 */
 
 	public int getId() {
 		return id;
@@ -91,14 +87,6 @@ public class User {
 		this.password = password;
 	}
 
-	public Set<Role> getRole() {
-		return Role;
-	}
-
-	public void setRole(Set<Role> role) {
-		Role = role;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -107,28 +95,28 @@ public class User {
 		this.name = name;
 	}
 
-	public Date getDob() {
-		return dob;
+	public String getMobile() {
+		return mobile;
 	}
 
-	public void setDob(Date dob) {
-		this.dob = dob;
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
-	public String getPan() {
-		return pan;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setPan(String pan) {
-		this.pan = pan;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public String getAadhar() {
-		return aadhar;
+	public boolean isAdmin() {
+		return admin;
 	}
 
-	public void setAadhar(String aadhar) {
-		this.aadhar = aadhar;
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 
 }
