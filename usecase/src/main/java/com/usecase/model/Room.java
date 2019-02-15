@@ -14,6 +14,8 @@ public class Room {
 	private int id;
 	private int acRooms;
 	private int nonAcRooms;
+	private int priceNonAcRooms;
+	private int priceAcRooms;
 	private int availableAcRooms;
 	private int availableNonAcRooms;
 	private int totalAvailableRooms;
@@ -64,6 +66,22 @@ public class Room {
 
 	public void setTotalAvailableRooms(int totalAvailableRooms) {
 		this.totalAvailableRooms = totalAvailableRooms;
+	}
+
+	public int getPriceNonAcRooms() {
+		return priceNonAcRooms;
+	}
+
+	public void setPriceNonAcRooms(int priceNonAcRooms) {
+		this.priceNonAcRooms = priceNonAcRooms;
+	}
+
+	public int getPriceAcRooms() {
+		return priceAcRooms;
+	}
+
+	public void setPriceAcRooms(int priceAcRooms) {
+		this.priceAcRooms = priceAcRooms;
 	}
 
 }
