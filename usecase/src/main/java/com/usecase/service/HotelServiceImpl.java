@@ -18,6 +18,7 @@ public class HotelServiceImpl implements HotelService {
 		return hotelDao.save(hotel);
 	}
 
+	
 	@Override
 	public List<Hotel> findAll() {
 		return (List<Hotel>) hotelDao.findAll();
