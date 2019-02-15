@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.usecase.model.Hotel;
 import com.usecase.service.HotelService;
 
+
+@Controller
 public class HotelController {
 	@Autowired
 	HotelService hotelService;
@@ -26,11 +29,10 @@ public class HotelController {
 	public List<Hotel> getHotels() {
 		return (List<Hotel>) hotelService.findAll();
 	}
-	
+
 	@GetMapping("hotel/{id}")
 	public Hotel getHotel(@PathVariable int id) {
 		return hotelService.findOneById(id);
 	}
-	
-	
+
 }

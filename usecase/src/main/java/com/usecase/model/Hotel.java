@@ -22,6 +22,7 @@ public class Hotel {
 	@NotEmpty
 	private String address;
 	private int rating;
+	@NotEmpty
 	private String phone;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
