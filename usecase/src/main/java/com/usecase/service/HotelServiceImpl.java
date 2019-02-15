@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.usecase.dao.BookingDao;
 import com.usecase.dao.HotelDao;
+import com.usecase.model.Booking;
 import com.usecase.model.Hotel;
 
 public class HotelServiceImpl implements HotelService {
@@ -25,5 +27,4 @@ public class HotelServiceImpl implements HotelService {
 	public Hotel findOneById(int id) {
 		return hotelDao.findOneById(id);
 	}
-
 }
