@@ -10,9 +10,6 @@ public interface HotelDao extends CrudRepository<Hotel, Integer> {
 
 	Hotel findOneById(int id);
 
-	Hotel delete(int id);
+	void delete(Hotel hotel);
 
-	 
-
-	
-	}
+}

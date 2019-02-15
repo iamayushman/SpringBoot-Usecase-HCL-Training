@@ -12,26 +12,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.usecase.model.Hotel;
+import com.usecase.model.Room;
 import com.usecase.service.HotelService;
+import com.usecase.service.RoomService;
 
 @RestController
 public class RoomController {
 	@Autowired
+	RoomService roomService;
+	@Autowired
 	HotelService hotelService;
 
-	@PostMapping("hotel")
-	public Hotel addHotel(@Valid @RequestBody Hotel hotel) {
-		return hotelService.create(hotel);
+	@PostMapping("hotel/{id}/rooms")
+	public Room addHotel(@Valid @RequestBody Room room, @PathVariable int id) {
+		room.setHotel(hotelService.findOneById(id));
+		return roomService.save(room);
 	}
 
-	@GetMapping("hotels")
-	public List<Hotel> getHotels() {
-		return (List<Hotel>) hotelService.findAll();
+	@GetMapping("hotel/{id}/rooms")
+	public List<Room> getHotels() {
+		return (List<Room>) roomService.findAll();
 	}
 
-	@GetMapping("hotel/{id}")
-	public Hotel getHotel(@PathVariable int id) {
-		return hotelService.findOneById(id);
+	@GetMapping("hotel/{id}/room")
+	public Room getHotel(@PathVariable int id) {
+		return roomService.findOneById(id);
 	}
 
 }

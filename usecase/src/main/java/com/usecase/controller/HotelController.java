@@ -37,7 +37,7 @@ public class HotelController {
 	}
 
 	@DeleteMapping("hotel/{id}")
-	public Hotel deleteHotel(@PathVariable int id) {
+	public boolean deleteHotel(@PathVariable int id) {
 		return hotelService.delete(id);
 	}
 

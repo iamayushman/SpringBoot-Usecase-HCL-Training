@@ -29,8 +29,10 @@ public class HotelServiceImpl implements HotelService {
 	}
 
 	@Override
-	public Hotel delete(int id) {
-		return hotelDao.delete(id);
+	public boolean delete(int id) {
+		Hotel hotel = hotelDao.findOneById(id);
+		hotelDao.delete(hotel);
+		return true;
 	}
 
 	@Override

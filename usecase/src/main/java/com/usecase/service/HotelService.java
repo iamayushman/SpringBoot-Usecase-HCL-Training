@@ -12,7 +12,7 @@ public interface HotelService {
 
 	public List<Hotel> findAll();
 
-	public Hotel delete(int id);
+	public boolean delete(int id);
 
 	public Hotel update(Hotel hotel);
 
