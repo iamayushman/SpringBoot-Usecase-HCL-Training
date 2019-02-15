@@ -10,6 +10,7 @@ public class Hotel {
 	private int id;
 	private String name;
 	private String address;
+	
 	private int rooms;
 	private int availableRooms;
 
