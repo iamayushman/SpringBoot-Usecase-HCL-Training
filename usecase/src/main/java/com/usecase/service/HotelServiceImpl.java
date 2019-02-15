@@ -12,7 +12,7 @@ import com.usecase.model.Hotel;
 public class HotelServiceImpl implements HotelService {
 	@Autowired
 	HotelDao hotelDao;
-
+	
 	@Override
 	public Hotel create(Hotel hotel) {
 		return hotelDao.save(hotel);
