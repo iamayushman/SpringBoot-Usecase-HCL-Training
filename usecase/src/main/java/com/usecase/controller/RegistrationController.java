@@ -1,5 +1,7 @@
 package com.usecase.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +20,7 @@ public class RegistrationController {
 	RegistrationService registrationService;
 
 	@PostMapping("register")
-	public User create(@RequestBody User user) throws RegistrationException, UsernameAlreadyExists {
+	public User create(@Valid @RequestBody User user) throws RegistrationException, UsernameAlreadyExists {
 
 		if (user.getUsername() == null || user.getUsername().length() <= 0 || user.getPassword() == null
 				|| user.getPassword().length() <= 0) {
