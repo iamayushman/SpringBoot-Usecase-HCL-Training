@@ -11,6 +11,15 @@ public class Hotel {
 	private String name;
 	private String address;
 	private int rooms;
+	private int availableRooms;
+
+	public int getAvailableRooms() {
+		return availableRooms;
+	}
+
+	public void setAvailableRooms(int availableRooms) {
+		this.availableRooms = availableRooms;
+	}
 
 	public int getId() {
 		return id;
