@@ -3,6 +3,7 @@ package com.usecase.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+
+import org.springframework.format.annotation.NumberFormat;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -21,11 +25,19 @@ public class Room {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+
+	@Column(nullable = true, columnDefinition = "tinyint(1) default 0")
 	private boolean acRoom;
+
+	@Min(0)
 	private int price;
+
+	@Min(1)
 	private int totalRooms;
+
+	@Min(0)
 	private int availableRooms;
-	
+
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "hotelId")
 	@JsonBackReference
