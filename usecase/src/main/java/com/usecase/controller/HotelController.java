@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.usecase.model.Hotel;
 import com.usecase.service.HotelService;
 
-
 @RestController
 public class HotelController {
 	@Autowired
@@ -35,4 +34,14 @@ public class HotelController {
 		return hotelService.findOneById(id);
 	}
 
+
+	@GetMapping("delete/{id}")
+	public Hotel deleteHotel(@PathVariable int id) {
+		return hotelService.delete(id);
+	}
+
+	@GetMapping("update/{id}")
+	public Hotel updateHotel(@PathVariable int id) {
+		return hotelService.update(id);
+	}
 }
