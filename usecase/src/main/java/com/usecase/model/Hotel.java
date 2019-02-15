@@ -1,17 +1,29 @@
 package com.usecase.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "hotels")
 public class Hotel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String name;
 	private String address;
-	
-	private int rooms;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "roomId")
+	private Set<Room> room;
+
 	private int availableRooms;
 
 	public int getAvailableRooms() {
@@ -46,11 +58,13 @@ public class Hotel {
 		this.address = address;
 	}
 
-	public int getRooms() {
-		return rooms;
+	public Set<Room> getRoom() {
+		return room;
 	}
 
-	public void setRooms(int rooms) {
-		this.rooms = rooms;
+	public void setRoom(Set<Room> room) {
+		this.room = room;
 	}
+
+	 
 }

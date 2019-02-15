@@ -20,7 +20,7 @@ public class HotelController {
 	HotelService hotelService;
 
 	@PostMapping("addhotel")
-	public Hotel addhotel(@Valid @RequestBody Hotel hotel) throws RegistrationException {
+	public Hotel addhotel(@Valid @RequestBody Hotel hotel) {
 
 		return hotelService.create(hotel);
 
