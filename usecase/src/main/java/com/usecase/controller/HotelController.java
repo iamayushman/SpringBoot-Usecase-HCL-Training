@@ -20,9 +20,9 @@ public class HotelController {
 	@PostMapping("addhotel")
 	public Hotel addhotel(@RequestBody Hotel hotel) throws RegistrationException {
 
-		if (hotel.getName() == null || hotel.getAddress().length() <= 0) {
+		if (hotel.getName() == null || hotel.getAddress().length() <= 0 || hotel.getRooms()<=0) {
 
-			throw new RegistrationException("name and address is required");
+			throw new RegistrationException("name, address and number of rooms is required");
 
 		} else {
 
