@@ -2,9 +2,10 @@ package com.usecase.controller;
 
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import java.util.NoSuchElementException;
 
-import com.usecase.exception.LoginException;
+import org.junit.Test;
+import com.usecase.exception.UserDoesNotExists;
 import com.usecase.model.User;
 
 public class UserControllerTest {
@@ -13,7 +14,8 @@ public class UserControllerTest {
 
 	
 
-	@Test
+	@Test(expected=UserDoesNotExists.class)
+	
 	public void testCreate(User user) {
 		
 		assertNotNull(user);
@@ -21,9 +23,11 @@ public class UserControllerTest {
 		assertNotNull(user.getPassword());
 	}
 
-	@Test
+	@Test(expected=NoSuchElementException.class)
 	public void testViewAccount(User user) {
+		
 		assertNotNull(user);
+		
 	}
 
 }
